@@ -1,5 +1,6 @@
 const http = require('http');
-let pageCounter = 0;
+let pageCounter1 = 0;
+let pageCounter2 = 0;
 const server = http.createServer((req, res) => {
     console.log('Запрос получен');
 
@@ -8,14 +9,14 @@ const server = http.createServer((req, res) => {
         res.writeHead(200, {
             'Content-Type': "text/html; charset=UTF-8"
         });
-        pageCounter++;
-        res.end(`<h1>Корневая страница</h1><br><p>Просмотров:${pageCounter}</p><br><a href="/about">Ссылка на страницу/about</a>`);
+        // pageCounter++;
+        res.end(`<h1>Корневая страница</h1><br><p>Просмотров:${pageCounter1++}</p><br><a href="/about">Ссылка на страницу/about</a>`);
     } else if (req.url === '/about') {
         res.writeHead(200, {
-            'Content-Type': "text/html; charset=UTF-8"
+            'Content-Type': "text/html; charset=UTF-8" 
         });
-        pageCounter++;
-        res.end(`<h1>Страница about</h1><br><p>Просмотров:${pageCounter}</p><br><a href="/">Ссылка на страницу/</a>`);
+        // pageCounter++;
+        res.end(`<h1>Страница about</h1><br><p>Просмотров:${pageCounter2++}</p><br><a href="/">Ссылка на страницу/</a>`);
     } else {
         res.writeHead(200, {
             'Content-Type': "text/html; charset=UTF-8"
